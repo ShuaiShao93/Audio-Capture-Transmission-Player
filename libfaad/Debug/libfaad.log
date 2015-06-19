@@ -1,0 +1,102 @@
+﻿生成启动时间为 2013/7/28 20:29:57。
+     1>项目“D:\Audio Cap and Play\libfaad\libfaad.vcxproj”在节点 2 上(Rebuild 个目标)。
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I../include /ZI /nologo /W3 /WX- /Od /Oy- /D _DEBUG /D WIN32 /D _LIB /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Debug/" /Fd".\Debug/vc110.pdb" /Gd /TC /analyze- /errorReport:prompt bits.c cfft.c common.c decoder.c drc.c drm_dec.c error.c filtbank.c hcr.c huffman.c ic_predict.c is.c lt_predict.c mdct.c mp4.c ms.c output.c pns.c ps_dec.c ps_syntax.c pulse.c rvlc.c sbr_dct.c sbr_dec.c sbr_e_nf.c sbr_fbt.c sbr_hfadj.c sbr_hfgen.c sbr_huff.c sbr_qmf.c sbr_syntax.c sbr_tf_grid.c specrec.c ssr.c ssr_fb.c ssr_ipqf.c syntax.c tns.c
+         bits.c
+         cfft.c
+         common.c
+         decoder.c
+     1>d:\audio cap and play\libfaad\decoder.c(220): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+     1>d:\audio cap and play\libfaad\decoder.c(1097): warning C4018: “<”: 有符号/无符号不匹配
+         drc.c
+         drm_dec.c
+         error.c
+         filtbank.c
+         hcr.c
+     1>d:\audio cap and play\libfaad\hcr.c(228): warning C4101: “bitsleft”: 未引用的局部变量
+     1>d:\audio cap and play\libfaad\hcr.c(228): warning C4101: “codewordsleft”: 未引用的局部变量
+         huffman.c
+         ic_predict.c
+         is.c
+         lt_predict.c
+         mdct.c
+     1>d:\audio cap and play\libfaad\mdct.c : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+         mp4.c
+     1>d:\audio cap and play\libfaad\mp4.c(137): warning C4013: “memset”未定义；假设外部返回 int
+         ms.c
+         output.c
+         pns.c
+         ps_dec.c
+     1>d:\audio cap and play\libfaad\ps_dec.c(214): warning C4013: “memset”未定义；假设外部返回 int
+     1>d:\audio cap and play\libfaad\ps_dec.c(518): warning C4013: “memcpy”未定义；假设外部返回 int
+         ps_syntax.c
+         正在生成代码...
+         正在编译...
+         pulse.c
+         rvlc.c
+         sbr_dct.c
+         sbr_dec.c
+         sbr_e_nf.c
+         sbr_fbt.c
+         sbr_hfadj.c
+     1>d:\audio cap and play\libfaad\sbr_hfadj.c(1561): warning C4013: “memcpy”未定义；假设外部返回 int
+         sbr_hfgen.c
+         sbr_huff.c
+         sbr_qmf.c
+         sbr_syntax.c
+     1>d:\audio cap and play\libfaad\sbr_syntax.c(407): warning C4013: “memset”未定义；假设外部返回 int
+         sbr_tf_grid.c
+         specrec.c
+         ssr.c
+         ssr_fb.c
+         ssr_ipqf.c
+         syntax.c
+     1>d:\audio cap and play\libfaad\syntax.c(1718): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+     1>d:\audio cap and play\libfaad\syntax.c(2633): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+         tns.c
+         正在生成代码...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:".\Debug\libfaad.lib" /NOLOGO .\Debug/bits.obj
+         .\Debug/cfft.obj
+         .\Debug/common.obj
+         .\Debug/decoder.obj
+         .\Debug/drc.obj
+         .\Debug/drm_dec.obj
+         .\Debug/error.obj
+         .\Debug/filtbank.obj
+         .\Debug/hcr.obj
+         .\Debug/huffman.obj
+         .\Debug/ic_predict.obj
+         .\Debug/is.obj
+         .\Debug/lt_predict.obj
+         .\Debug/mdct.obj
+         .\Debug/mp4.obj
+         .\Debug/ms.obj
+         .\Debug/output.obj
+         .\Debug/pns.obj
+         .\Debug/ps_dec.obj
+         .\Debug/ps_syntax.obj
+         .\Debug/pulse.obj
+         .\Debug/rvlc.obj
+         .\Debug/sbr_dct.obj
+         .\Debug/sbr_dec.obj
+         .\Debug/sbr_e_nf.obj
+         .\Debug/sbr_fbt.obj
+         .\Debug/sbr_hfadj.obj
+         .\Debug/sbr_hfgen.obj
+         .\Debug/sbr_huff.obj
+         .\Debug/sbr_qmf.obj
+         .\Debug/sbr_syntax.obj
+         .\Debug/sbr_tf_grid.obj
+         .\Debug/specrec.obj
+         .\Debug/ssr.obj
+         .\Debug/ssr_fb.obj
+         .\Debug/ssr_ipqf.obj
+         .\Debug/syntax.obj
+         .\Debug/tns.obj
+         libfaad.vcxproj -> D:\Audio Cap and Play\libfaad\.\Debug\libfaad.lib
+     1>已完成生成项目“D:\Audio Cap and Play\libfaad\libfaad.vcxproj”(Rebuild 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.09
