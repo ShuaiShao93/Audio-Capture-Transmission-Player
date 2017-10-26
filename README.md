@@ -18,6 +18,6 @@ Instructions:
 
 7. On server, run InjectDll.exe in 'InjectDLL' to inject the dll into the processes and start capturing audio.
 
-8. On server, run AudioSender.exe in 'TestCaptureAudio' to read audio from buffer and mix.
+8. On server, run TestCaptureAudio.exe in 'TestCaptureAudio' to read audio from buffer and mix.
 
-9. On client, run AudioReceier.exe in 'TestLibPlayer' to play audio.
+9. On client, run TestLibPlayer.exe in 'TestLibPlayer' to play audio.
