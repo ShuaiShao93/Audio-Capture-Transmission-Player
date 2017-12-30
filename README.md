@@ -8,16 +8,18 @@ Instructions:
 
 2. Locate Line 19 in TestLibPlayer/TestLibPlayer.h, change SERVER_ADD to the actual address of server. If you want to test locally, just leave it be.
 
-3. Build every subprojects except 'InjectDLL'.
+3. Build 'AudioHook'.
 
 4. Locate Line 25 in InjectDLL/InjectDLL.cpp, change the path to AudioHook2.dll file, which you built in project 'AudioHook'.
 
-5. Build 'InjectDLL'.
+5. Copy AudioHook2.lib from 'AudioHook' to /TestCaptureAudio, in order to be used by 'TestCaptureAudio'.
 
-6. On server, run the processes that you want to capture audio.
+6. Build all other subprojects.
 
-7. On server, run InjectDll.exe in 'InjectDLL' to inject the dll into the processes and start capturing audio.
+7. On server, run the processes that you want to capture audio.
 
-8. On server, run TestCaptureAudio.exe in 'TestCaptureAudio' to read audio from buffer and mix.
+8. On server, run InjectDll.exe in 'InjectDLL' to inject the dll into the processes and start capturing audio.
 
-9. On client, run TestLibPlayer.exe in 'TestLibPlayer' to play audio.
+9. On server, run TestCaptureAudio.exe in 'TestCaptureAudio' to read audio from buffer and mix.
+
+10. On client, run TestLibPlayer.exe in 'TestLibPlayer' to play audio.
