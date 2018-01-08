@@ -1,5 +1,4 @@
 #include "AudioHook.h"
-//#define PACKAGE_TIME 10
 
 #pragma data_seg("SharedData")
 BOOL AvailSession[MAXSESSION] = {0};
@@ -8,10 +7,6 @@ WAVEFORMATEXTENSIBLE waveFormat = {0};
 #pragma data_seg()
 #pragma comment(linker,"/SECTION:SharedData,RWS")
 
-//int processId;
-//char filename[30];
-//FILE *fwav;
-//int dataChunkSize, dataChunkPosition;
 extern HANDLE hMutex[MAXSESSION][MAXPROCESS];
 
 
@@ -166,43 +161,6 @@ int Sender::getDataSize(int SN, int PN) {
 		return isEmpty?0:MAXLENGTH;
 }
 
-/*void Sender::SendBuffer(int nBuffer) {
-	fwrite(pBuffer[nBuffer], 1, packageSize, fwav);
-	dataChunkSize += packageSize;
-
-}
-
-Sender::~Sender() {
-}*/
-
 int Sender::getBytesPerMilli() {
 	return wvFmt.Format.nAvgBytesPerSec / 1000;
 }
-
-/*void Sender::InitializeSender() {
-	frameSize = wvFmt.Format.nChannels * wvFmt.Format.wBitsPerSample / 8;
-	dataChunkSize = 0;
-
-	packageSize =wvFmt.Format.nAvgBytesPerSec * PACKAGE_TIME / 1000;
-	pBuffer[0] = new BYTE[packageSize];
-	pBuffer[1] = new BYTE[packageSize];
-	
-
-	fwrite("RIFF\0\0\0\0WAVEfmt ", 1, 16, fwav);
-	int length;
-
-	if (wvFmt.Format.wFormatTag == WAVE_FORMAT_EXTENSIBLE) {
-		length = 18 + wvFmt.Format.cbSize;
-		fwrite(&length, sizeof(long), 1, fwav);
-		fwrite(&wvFmt, length, 1, fwav);
-	}
-	else {
-		length = 18;
-		fwrite(&length, sizeof(long), 1, fwav);
-		fwrite(&(wvFmt.Format), length, 1, fwav);
-	}
-	
-	fwrite("data", sizeof(char), 4, fwav);
-	dataChunkPosition = ftell(fwav);
-	fwrite("\0\0\0\0", sizeof(char), 4, fwav);
-}*/

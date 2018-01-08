@@ -20,7 +20,7 @@ typedef struct
   int isfloat;
 } pcmfile_t;
 
-#define FRAMELENGTH 8192   //faac读一次是2048 samples,每个sample 4B，所以这就是读一次最大的容量
+#define FRAMELENGTH 8192   //faac reads 2048 samples every time, each sample is 4 Bytes, so 8192 Bytes are the max size for reading each time
 #define SERVER_PORT "12345"
 #define SERVER_ADD "localhost"
 

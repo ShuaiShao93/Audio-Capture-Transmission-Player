@@ -22,42 +22,26 @@ void main() {
 	unsigned char *decoder_offset;
 	unsigned long samplerate;
     unsigned char channels;
-	//LARGE_INTEGER starttime3 = {0},endtime3 = {0}, frequency={0};
 
-	InitSocket();
 	InitDecoder();
+	InitSocket();
 
 	numGet = recv(ConnectSocket, (char*)recv_buffer, (6144/8)*2*5, 0);
+	printf("send: %d\n", numGet);
 
 	if(get_one_ADTS_frame(recv_buffer, numGet, decoder_buffer, &size) == 0)
 		if(NeAACDecInit(hAac, (unsigned char*)decoder_buffer, size, &samplerate, &channels) < 0){
 		    printf("Error initializing decoder library.\n");
 	}
-	// Initialise the library using one of the initialization functions
-	/*decoder_offset = recv_buffer;
-	if(numGet > 0){
-		while(get_one_ADTS_frame(decoder_offset, numGet, decoder_buffer, &size) == 0){
-		    buffer = NeAACDecDecode(hAac, &hInfo, (unsigned char*)decoder_buffer, size);
-		    if ((hInfo.error == 0) && (hInfo.samples > 0)){
-			    ap->LoadData(hInfo.samples * 4, (BYTE *)buffer);   //4B 一个sample
-			    printf("LoadData: %d\n", hInfo.samples * 4);
-            } else if (hInfo.error != 0) {
-			    printf("NeAACDecDecode Failed!\n");
-			    printf("Error: %s\n", NeAACDecGetErrorMessage(hInfo.error));
-			    NeAACDecClose(hAac);
-            }
-			numGet -= size;
-			decoder_offset += size;
-		}
-    }*/
+
 	ap->Start();
 
 	while (1) {
 		numGet = recv(ConnectSocket, (char*)recv_buffer, (6144/8)*2*10, 0);  //maxBytesOutput
         // Loop until decoding finished
         if(numGet > 0){
+			printf("send: %d\n", numGet);
 			decoder_offset = recv_buffer;
-			//QueryPerformanceCounter(&starttime3);
 		   while(get_one_ADTS_frame(decoder_offset, numGet, decoder_buffer, &size) == 0){
 		       buffer = NeAACDecDecode(hAac, &hInfo, (unsigned char*)decoder_buffer, size);
 		       if ((hInfo.error == 0) && (hInfo.samples > 0)){
@@ -71,9 +55,6 @@ void main() {
 			   numGet -= size;
 			   decoder_offset += size;
 		    }
-			//QueryPerformanceCounter(&endtime3);
-			//QueryPerformanceFrequency(&frequency);
-			//printf("TIME 3 :%f\n",(float)(endtime3.QuadPart-starttime3.QuadPart)/(float)frequency.QuadPart);
 		}
     }
 NeAACDecClose(hAac);
@@ -116,8 +97,11 @@ int InitSocket() {
 	// Connect to server.
 	iResult = connect( ConnectSocket, ptr->ai_addr, (int)ptr->ai_addrlen);
 	if (iResult == SOCKET_ERROR) {
+		printf("Connect failed: %d\n", WSAGetLastError());
 		closesocket(ConnectSocket);
 		ConnectSocket = INVALID_SOCKET;
+		WSACleanup();
+		return 1;
 	}
 
 	freeaddrinfo(result);
@@ -128,9 +112,6 @@ int InitDecoder(){
 
 	unsigned int sampleRate = 48000;  
 	unsigned int nChannels = 2;  
-
-	//unsigned long cap = NeAACDecGetCapabilities();
-    // Check if decoder has the needed capabilities ： LC显然可以
 
     // Open the library
     hAac = NeAACDecOpen();

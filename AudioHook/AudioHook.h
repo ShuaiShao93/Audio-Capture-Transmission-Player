@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define CINTERFACE
 #include <Windows.h>
-#include <detours.h>
+#include "detours.h"
 #include <Audioclient.h>
 #include <mmdeviceapi.h>
 #include <io.h>
@@ -40,7 +40,6 @@ struct argument{
 };
 
 class Sender{
-	//BYTE *pBuffer[2];
 	int usingBuffer, filledSize;
 	UINT32 frameSize, packageSize;
 	void SendBuffer(int);

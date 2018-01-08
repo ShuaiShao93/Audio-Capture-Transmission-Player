@@ -18,8 +18,7 @@ HRESULT (STDMETHODCALLTYPE *SysIARCReleaseBuffer)(IAudioRenderClient *,
                                               DWORD) = NULL;
 
 Sender *mySender;
-HANDLE hMutex[MAXSESSION][MAXPROCESS];  //声明互斥量
-FILE* log;
+HANDLE hMutex[MAXSESSION][MAXPROCESS];
 
 BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
 {
@@ -38,16 +37,12 @@ BOOL WINAPI DllMain(HINSTANCE hinst, DWORD dwReason, LPVOID reserved)
         return TRUE;
     }
 
-	//SysIARCGetBuffer = &IAudioRenderClient::GetBuffer;
-	 
-	 //SysIARCGetBuffer = pRenderClient->GetBuffer;
-
     if (dwReason == DLL_PROCESS_ATTACH) {
 		
 		mySender = new Sender;
 		mySender->InitArg();
 
-		hMutex[mySender->arg.SessionNum][mySender->arg.ProcessNum] = CreateMutex(NULL, FALSE, NULL);  //创建互斥量
+		hMutex[mySender->arg.SessionNum][mySender->arg.ProcessNum] = CreateMutex(NULL, FALSE, NULL);
 
 		CoInitialize(NULL);
 

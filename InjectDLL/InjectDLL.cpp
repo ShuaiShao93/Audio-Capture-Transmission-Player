@@ -18,11 +18,11 @@ int main(void)
 		while((Process32Next(hTool32, &pe32)) == TRUE) //While processes left to be enumerated
 		{
 			processNames.push_back(pe32.szExeFile); //Save process name
-			if(strcmp(pe32.szExeFile, "QQMusic.exe") == 0 || strcmp(pe32.szExeFile, "splayer.exe") == 0) //Process we want to inject to
+			if(strcmp(pe32.szExeFile, "process_name1.exe") == 0 || strcmp(pe32.szExeFile, "process_name2.exe")) //Process we want to inject to
 			{
 				printf("%d\n", pe32.th32ProcessID);
 
-				char* FullPath = "D:\\Audio Cap and Play\\TestCaptureAudio\\Debug\\AudioHook2.dll";
+				char* FullPath = "D:\\GithubRepositories\\Audio-Capture-Transmission-Player\\TestCaptureAudio\\Release\\AudioHook2.dll";
 				HANDLE hProcess = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pe32.th32ProcessID);
 				//printf("%x\n", hProcess);
 				LPVOID LoadLibraryAddr = (LPVOID)GetProcAddress(GetModuleHandle("Kernel32.dll"),

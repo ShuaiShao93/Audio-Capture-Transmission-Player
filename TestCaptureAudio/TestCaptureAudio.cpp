@@ -2,8 +2,6 @@
 #include <faac.h>
 #include <faaccfg.h>
 
-//#define TIME 10
-
 #define MAXLENGTH 98304
 
 BYTE get_buffer[MAXLENGTH];
@@ -28,7 +26,6 @@ int main() {
 	int numGet, iResult= 0;
 	int samplesRead, bytesEncode = 0, numFromCir;
 	int send_offset;
-	//FILE * out = fopen("d:\\out.wav","wb");
 	while (1) {
 		
 		InitEncoder();
@@ -43,19 +40,15 @@ int main() {
 			    numFromCir = getframe(read_buffer);
 			    samplesRead = wav_read_float32(&sndf, encoder_buffer, numFromCir/4);
 				if(samplesRead > 0){
-				//QueryPerformanceCounter(&starttime2);
 					if((bytesEncode = faacEncEncode(hEncoder, (int32_t *)encoder_buffer, samplesRead, buffer + send_offset, maxBytesOutput)) < 0)
-					    printf("faacEncEncode Failed!\n");  //numGet字节每10ms，每个Sample 32bit, 4字节
+					    printf("faacEncEncode Failed!\n");
 					send_offset += bytesEncode;
-					//QueryPerformanceCounter(&endtime2);
-				    //QueryPerformanceFrequency(&frequency);
-				    //printf("TIME 2 :%f\n",(float)(endtime2.QuadPart - starttime2.QuadPart) /(float)frequency.QuadPart);
 				}
 			}
 			    if(bytesEncode > 0){
 					iResult = send(ClientSocket, (const char*)buffer, send_offset, 0);
-					//if(iResult >0)
-					   // printf("send: %d\n",iResult);
+					if(iResult >0)
+					    printf("send: %d\n",iResult);
 			}
 				Sleep(80);
 		} while (iResult >= 0);
@@ -72,8 +65,8 @@ int main() {
 
 int InitEncoder(){
 	faacEncConfigurationPtr myFormat;
-	unsigned int sampleRate = 48000;  
-	unsigned int nChannels = 2;  //采样率是48KHz(48k个samples每秒), 2声道
+	unsigned int sampleRate = 48000;  // Sample Rate is 48000 samples per second
+	unsigned int nChannels = 2;
 	unsigned int mpegVersion = MPEG2;
     unsigned int objectType = LOW;
     unsigned int useMidSide = 1;
@@ -204,7 +197,6 @@ size_t wav_read_float32(pcmfile_t *sndf, float *buf, size_t num)
 
 
 int getframe(BYTE* pAudio) {
-	//int numBytes = 10 * mySender->getBytesPerMilli();
 	int numBytes = FRAMELENGTH;
 
 	if (pLatest > pOldest || (pLatest == pOldest && isEmpty == 1)) {

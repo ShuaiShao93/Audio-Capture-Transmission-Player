@@ -4,9 +4,6 @@
               if ((punk) != NULL)  \
                 { (punk)->Release(); (punk) = NULL; }
 
-//#define REFTIMES_PER_SEC  10000000
-//#define REFTIMES_PER_MILLISEC  10000
-
 const CLSID CLSID_MMDeviceEnumerator = __uuidof(MMDeviceEnumerator);
 const IID IID_IMMDeviceEnumerator = __uuidof(IMMDeviceEnumerator);
 const IID IID_IAudioClient = __uuidof(IAudioClient);
@@ -108,9 +105,6 @@ void runThread(void *audioPlayer) {
 			    ap->GetData(numFramesAvailable, pData);
 
 			    hr = ap->pRenderClient->ReleaseBuffer(numFramesAvailable, ap->flags);
-				//QueryPerformanceCounter(&ap->endtime4);
-				//QueryPerformanceFrequency(&frequency);
-				//printf("TIME 4 :%f\n",(float)(ap->endtime4.QuadPart - ap->starttime4.QuadPart) /(float)frequency.QuadPart);
 		        LeaveCriticalSection(&(ap->dataProcessSection));
 			}
 		}
@@ -130,12 +124,6 @@ AudioPlayer::~AudioPlayer() {
 HRESULT AudioPlayer::GetData(UINT32 numFramesAvailable, BYTE* pData) {
 
 	int numBytes = numFramesAvailable * wvFmt.Format.nChannels * wvFmt.Format.wBitsPerSample / 8;
-	//if(numBytes != 0)
-	    //printf("GetData: %d Bytes, %d Frames.\n", numBytes, numFramesAvailable);
-	//if (isEmpty == 1 && pOldest == pLatest) {
-		//flags = AUDCLNT_BUFFERFLAGS_SILENT;
-		//return S_OK;
-	//}
 
 	if (pLatest > pOldest) {
 		if (numBytes > pLatest - pOldest) 
@@ -165,7 +153,6 @@ HRESULT AudioPlayer::GetData(UINT32 numFramesAvailable, BYTE* pData) {
 HRESULT AudioPlayer::LoadData(int numBytes, BYTE* pData) {
 
 	EnterCriticalSection(&dataProcessSection);
-	//QueryPerformanceCounter(&starttime4);
 	if (pLatest + numBytes <= MAXLENGTH)
 		memcpy(audioBuffer + pLatest, pData, numBytes);
 	else {

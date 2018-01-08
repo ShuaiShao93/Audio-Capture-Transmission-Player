@@ -9,8 +9,6 @@
 
 #pragma comment(lib, "ws2_32.lib")
 
-//#pragma comment(lib, "Kernel32.lib")
-
 #pragma comment(lib, "LibAudioPlayer.lib")
 
 #pragma comment(lib, "libfaad.lib")

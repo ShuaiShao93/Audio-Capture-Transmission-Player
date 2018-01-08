@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -12,17 +12,18 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{BC3EFE27-9015-4C9C-AD3C-72B3B7ED2114}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <UseOfMfc>false</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
@@ -39,23 +40,21 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>11.0.50727.1</_ProjectFileVersion>
+    <_ProjectFileVersion>15.0.26228.4</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>.\Release\</OutDir>
-    <IntDir>.\Release\</IntDir>
-    <IncludePath>.\include;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>.\Debug\</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
     <IntDir>.\Debug\</IntDir>
-    <IncludePath>.\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;WIN32;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -287,6 +286,19 @@
     <ClInclude Include="bits.h" />
     <ClInclude Include="cfft.h" />
     <ClInclude Include="cfft_tab.h" />
+    <ClInclude Include="codebook\hcb.h" />
+    <ClInclude Include="codebook\hcb_1.h" />
+    <ClInclude Include="codebook\hcb_10.h" />
+    <ClInclude Include="codebook\hcb_11.h" />
+    <ClInclude Include="codebook\hcb_2.h" />
+    <ClInclude Include="codebook\hcb_3.h" />
+    <ClInclude Include="codebook\hcb_4.h" />
+    <ClInclude Include="codebook\hcb_5.h" />
+    <ClInclude Include="codebook\hcb_6.h" />
+    <ClInclude Include="codebook\hcb_7.h" />
+    <ClInclude Include="codebook\hcb_8.h" />
+    <ClInclude Include="codebook\hcb_9.h" />
+    <ClInclude Include="codebook\hcb_sf.h" />
     <ClInclude Include="common.h" />
     <ClInclude Include="decoder.h" />
     <ClInclude Include="drc.h" />
@@ -294,7 +306,6 @@
     <ClInclude Include="error.h" />
     <ClInclude Include="filtbank.h" />
     <ClInclude Include="fixed.h" />
-    <ClInclude Include="codebook\hcb.h" />
     <ClInclude Include="huffman.h" />
     <ClInclude Include="ic_predict.h" />
     <ClInclude Include="iq_table.h" />
@@ -327,18 +338,6 @@
     <ClInclude Include="structs.h" />
     <ClInclude Include="syntax.h" />
     <ClInclude Include="tns.h" />
-    <ClInclude Include="codebook\hcb_1.h" />
-    <ClInclude Include="codebook\hcb_10.h" />
-    <ClInclude Include="codebook\hcb_11.h" />
-    <ClInclude Include="codebook\hcb_2.h" />
-    <ClInclude Include="codebook\hcb_3.h" />
-    <ClInclude Include="codebook\hcb_4.h" />
-    <ClInclude Include="codebook\hcb_5.h" />
-    <ClInclude Include="codebook\hcb_6.h" />
-    <ClInclude Include="codebook\hcb_7.h" />
-    <ClInclude Include="codebook\hcb_8.h" />
-    <ClInclude Include="codebook\hcb_9.h" />
-    <ClInclude Include="codebook\hcb_sf.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

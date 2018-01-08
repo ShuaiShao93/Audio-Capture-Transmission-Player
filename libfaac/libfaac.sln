@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfaad", "libfaad.vcxproj", "{BC3EFE27-9015-4C9C-AD3C-72B3B7ED2114}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libfaac", "libfaac.vcxproj", "{9CC48C6E-92EB-4814-AD37-97AB3622AB65}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BC3EFE27-9015-4C9C-AD3C-72B3B7ED2114}.Debug|x86.ActiveCfg = Debug|Win32
-		{BC3EFE27-9015-4C9C-AD3C-72B3B7ED2114}.Debug|x86.Build.0 = Debug|Win32
-		{BC3EFE27-9015-4C9C-AD3C-72B3B7ED2114}.Release|x86.ActiveCfg = Release|Win32
-		{BC3EFE27-9015-4C9C-AD3C-72B3B7ED2114}.Release|x86.Build.0 = Release|Win32
+		{9CC48C6E-92EB-4814-AD37-97AB3622AB65}.Debug|x86.ActiveCfg = Debug|Win32
+		{9CC48C6E-92EB-4814-AD37-97AB3622AB65}.Debug|x86.Build.0 = Debug|Win32
+		{9CC48C6E-92EB-4814-AD37-97AB3622AB65}.Release|x86.ActiveCfg = Release|Win32
+		{9CC48C6E-92EB-4814-AD37-97AB3622AB65}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BDF34D42-D062-4070-B1C4-035AD3F12313}
+		SolutionGuid = {0B1B3D75-A3B9-459F-AFAD-3D79D3520D3A}
 	EndGlobalSection
 EndGlobal
