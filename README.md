@@ -14,14 +14,12 @@ Instructions:
 
 4. Locate Line 25 in InjectDLL/InjectDLL.cpp, change the path to AudioHook2.dll file, aka path to "TestCaptureAudio\Release\AudioHook2.dll".
 
-5. Copy AudioHook2.lib from 'AudioHook' to /TestCaptureAudio, in order to be used by 'TestCaptureAudio'.
+5. Build all other subprojects.
 
-6. Build all other subprojects.
+6. On server, run the processes that you want to capture audio.
 
-7. On server, run the processes that you want to capture audio.
+7. On server, run InjectDll.exe in 'InjectDLL' to inject the dll into the processes and start capturing audio.
 
-8. On server, run InjectDll.exe in 'InjectDLL' to inject the dll into the processes and start capturing audio.
+8. On server, run TestCaptureAudio.exe in 'TestCaptureAudio' to read audio from buffer and mix.
 
-9. On server, run TestCaptureAudio.exe in 'TestCaptureAudio' to read audio from buffer and mix.
-
-10. On client, run TestLibPlayer.exe in 'TestLibPlayer' to play audio.
+9. On client, run TestLibPlayer.exe in 'TestLibPlayer' to play audio.
