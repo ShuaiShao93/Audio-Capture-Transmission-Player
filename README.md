@@ -12,7 +12,7 @@ Instructions:
 
 4. Move AudioHook2.dll from AudioHook\Release to TestCaptureAudio\Release.
 
-4. Locate Line 25 in InjectDLL/InjectDLL.cpp, change the path to AudioHook2.dll file, aka path to "TestCaptureAudio\Release".
+4. Locate Line 25 in InjectDLL/InjectDLL.cpp, change the path to AudioHook2.dll file, aka path to "TestCaptureAudio\Release\AudioHook2.dll".
 
 5. Copy AudioHook2.lib from 'AudioHook' to /TestCaptureAudio, in order to be used by 'TestCaptureAudio'.
 
